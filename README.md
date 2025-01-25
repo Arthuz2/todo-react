@@ -108,4 +108,4 @@ Arthur Porcino Pereira
 
 📧 Email: arthur.porcino43@gmail.com
 
-📱 LinkedIn: linkedin.com/in/arthurporcino
+📱 LinkedIn: https://linkedin.com/in/arthurporcino
