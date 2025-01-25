@@ -1,0 +1,44 @@
+.formContainer {
+  flex: 1;
+  height: 3.375rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: calc(0px - 1.5rem - 2px);
+}
+
+.taskInput {
+  flex: 1;
+  padding: 1rem;
+  background: var(--gray-500);
+  border-radius: 8px;
+  border: none;
+  color: var(--gray-100);
+  font-size: 1rem;
+  min-width: 10px;
+}
+
+.submitButton {
+  height: 3.25rem;
+  background: var(--blue-700);
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-100);
+  gap: 0.5rem;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.submitButton:hover {
+  background: var(--blue-300);
+}
+
+@media (max-width: 460px) {
+  .formContainer {
+    flex-direction: column;
+  }
+}
