@@ -89,9 +89,11 @@ src/
 ## 📸 Demonstração
 
 ### Sem tarefas
+![Imagem do projeto sem tarefas](https://github.com/user-attachments/assets/3c1c7013-e1a4-4c2c-a8ae-2c99d556dfa5)
 
 
 ### Tarefas concluídas e pendentes
+![Imagem do projeto com tarefas concluídas e pendentes](https://github.com/user-attachments/assets/142f369c-db24-422b-9364-c9276bc25f18)
 
 
 ## ❤️ Agradecimentos
