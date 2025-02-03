@@ -12,44 +12,61 @@ export interface Task {
 
 export function Tasks() {
   const [doneCount, setDoneCount] = useState(0)
-
-  const [tasksList, setTasksList] = useState(() => {
+  const [tasksList, setTasksList] = useState<Task[]>(() => {
     const storedTasks = localStorage.getItem('tasks')
     return storedTasks ? JSON.parse(storedTasks) : ''
   })
+  const [showTaskDone, setShowTaskDone] = useState(false)
 
   function newTasksList(tasks: Task[]) {
     setTasksList(tasks)
     localStorage.setItem('tasks', JSON.stringify(tasks))
-    setDoneCount(tasks.filter((task: Task) => task.done).length)
   }
 
   useEffect(() => {
     if (tasksList) {
-      setDoneCount(tasksList.filter((task: Task) => task.done).length)
+      setDoneCount(tasksList.filter((task) => task.done).length)
     }
   }, [tasksList, setDoneCount])
+
+  function handleShowAllTaskFilter() {
+    setShowTaskDone(false)
+  }
+
+  function handleDoneTaskFilter() {
+    setShowTaskDone(true)
+  }
 
   return (
     <div>
       <NewTaskForm tasksList={tasksList} newTasksList={newTasksList} />
       <main className={styles.tasksContainer}>
         <div className={styles.infos}>
-          <span className={styles.created}>
-            Tarefas Criadas <strong>{tasksList.length}</strong>
-          </span>
-          <span className={styles.done}>
-            Concluídas{' '}
+          <button
+            className={styles.filterButton}
+            onClick={handleShowAllTaskFilter}
+          >
+            <span className={styles.created}>Tarefas Criadas</span>
+            <strong>{tasksList.length}</strong>
+          </button>
+          <button
+            className={styles.filterButton}
+            onClick={handleDoneTaskFilter}
+          >
+            <span className={styles.done}>Concluídas</span>
             <strong>
               {doneCount === tasksList.length
                 ? doneCount
                 : doneCount + ' de ' + tasksList.length}
             </strong>
-          </span>
+          </button>
         </div>
-        {tasksList.length !== 0 ? (
-          tasksList.map((task: Task) => {
-            return (
+        {!tasksList.length ? (
+          <EmptyTasks />
+        ) : showTaskDone ? (
+          tasksList
+            .filter((task) => task.done)
+            .map((task) => (
               <TaskCard
                 key={task.id}
                 id={task.id}
@@ -58,10 +75,18 @@ export function Tasks() {
                 tasksList={tasksList}
                 newTasksList={newTasksList}
               />
-            )
-          })
+            ))
         ) : (
-          <EmptyTasks />
+          tasksList.map((task) => (
+            <TaskCard
+              key={task.id}
+              id={task.id}
+              content={task.content}
+              done={task.done}
+              tasksList={tasksList}
+              newTasksList={newTasksList}
+            />
+          ))
         )}
       </main>
     </div>
