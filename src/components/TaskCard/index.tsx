@@ -33,9 +33,7 @@ export function TaskCard({
   }
 
   function handleDeleteTask() {
-    tasksList = tasksList.filter((task) => {
-      return task.id !== id
-    })
+    tasksList = tasksList.filter((task) => task.id !== id)
 
     newTasksList(tasksList)
   }
