@@ -82,7 +82,7 @@ src/
 
 ## 🎯 Melhorias Futuras
 
-- Adicionar filtros para visualizar tarefas "Todas", "Pendentes" e "Concluídas".
+- Adicionar filtro para visualizar tarefas "Pendentes".
 - Incluir testes automatizados para validar o comportamento dos componentes.
 - Melhorar a interface com animações suaves e transições ao adicionar, marcar ou excluir tarefas.
 
