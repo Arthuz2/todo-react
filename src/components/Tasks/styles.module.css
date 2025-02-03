@@ -17,12 +17,14 @@
 .infos span {
   font-weight: bold;
   font-size: 0.875rem;
-  display: flex;
-  gap: 0.5rem;
   align-items: center;
 }
 
-.infos span strong {
+.infos span:hover {
+  text-decoration: underline;
+}
+
+.infos strong {
   content: '0';
   color: var(--gray-200);
   font-weight: bold;
@@ -30,6 +32,14 @@
   padding: 0.125rem 0.5rem;
   background: var(--gray-400);
   border-radius: 999px;
+}
+
+.filterButton {
+  display: flex;
+  gap: 0.5rem;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
 }
 
 .created {
